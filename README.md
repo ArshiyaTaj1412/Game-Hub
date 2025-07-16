@@ -9,12 +9,6 @@ GameHub is a modern video game discovery web application built using React, Type
 - Sort results by popularity, release date, rating, and more
 - Responsive design with dark/light mode support
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm
 
 ### Installation
 
