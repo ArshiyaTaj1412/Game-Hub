@@ -10,7 +10,6 @@ interface Props {
 
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = UsePlatform();
-  console.log(selectedPlatform, "selectedPlatform");
   if (error) return null;
   return (
     <Menu.Root>
@@ -28,7 +27,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
             key={platform.id}
             onClick={() => {
               onSelectPlatform(platform);
-              close();
+              // close();
             }}
           >
             {platform.name}
