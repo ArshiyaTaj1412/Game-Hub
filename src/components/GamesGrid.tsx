@@ -10,9 +10,9 @@ interface Props {
 const GamesGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  if (error) return <Text>{error}</Text>;
   return (
     <>
-      <Text>{error}</Text>
       <SimpleGrid
         columns={{ sm: 2, md: 3, lg: 4, xl: 4 }}
         gap={6}
