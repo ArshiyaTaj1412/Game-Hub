@@ -55,6 +55,8 @@ The app will be available at `http://localhost:5173`.
 
 - React
 - TypeScript
+- HTML
+- CSS
 - Chakra UI
 - Vite
 - RAWG.io API
