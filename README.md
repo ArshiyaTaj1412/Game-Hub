@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# GameHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GameHub is a modern video game discovery web application built using React, TypeScript, and Chakra UI. It allows users to browse and filter games by platform, genre, and sort order. The application uses the RAWG Video Games Database API to fetch and display real-time game data.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search games by name
+- Filter by genre and platform
+- Sort results by popularity, release date, rating, and more
+- Responsive design with dark/light mode support
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (v16 or higher)
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/gamehub.git
+   ```
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd gamehub
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Obtain an API key from [RAWG API](https://rawg.io/apidocs).
+
+5. Add your API key to `src/services/api-client.ts`:
+
+   ```ts
+   const axiosInstance = axios.create({
+     baseURL: "https://api.rawg.io/api",
+     params: {
+       key: "YOUR_API_KEY_HERE",
+     },
+   });
+   ```
+
+6. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+The app will be available at `http://localhost:5173`.
+
+## Technologies Used
+
+- React
+- TypeScript
+- Chakra UI
+- Vite
+- RAWG.io API
+
+## Folder Structure
+
+```
+src/
+├── components/
+├── hooks/
+├── pages/
+├── services/
+├── assets/
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Author & Contact
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Arshiya Taj**  
+📧 arshiyataj1412@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/arshiya-taj)
