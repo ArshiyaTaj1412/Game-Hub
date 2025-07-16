@@ -26,7 +26,7 @@ const GameCard = ({ game }: Props) => {
         <HStack
           justifyContent="space-between"
           width="100%"
-          paddingX={5}
+          paddingX={11}
           marginTop={3}
         >
           <PlatformIconList
