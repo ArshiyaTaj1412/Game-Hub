@@ -1,8 +1,8 @@
-import { Card, Heading, HStack, Image } from "@chakra-ui/react";
-import type { Game } from "../hooks/useGames";
-import PlatformIconList from "./PlatformIconList";
+import { Card, CardBody, Heading, HStack, Image } from "@chakra-ui/react";
+import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
-import getCroppedImageURl from "../services/image-url";
+import PlatformIconList from "./PlatformIconList";
+import type { Game } from "../hooks/useGames";
 
 interface Props {
   game: Game;
@@ -10,24 +10,32 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <>
-      <Card.Root borderWidth="1px" borderRadius={10} overflow="hidden">
-        <Image
-          src={getCroppedImageURl(game.background_image)}
-          alt={game.name}
-        />
-        <Card.Body display="flex" flexDirection="column" gap={3}>
-          <HStack justifyContent="space-between" marginBottom={3}></HStack>
-          <Heading size="2xl">{game.name}</Heading>
-          <HStack justifyContent="space-between">
-            <PlatformIconList
-              platforms={game.parent_platforms.map((p) => p.platform)}
-            />
-            <CriticScore score={game.metacritic} />
-          </HStack>
-        </Card.Body>
-      </Card.Root>
-    </>
+    <Card.Root height="300px" width="300px" borderRadius={10} overflow="hidden">
+      <Image height="200px" src={getCroppedImageUrl(game.background_image)} />
+      <CardBody
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        flex="1"
+        overflow="hidden"
+        padding={3}
+      >
+        <Heading fontSize="xl" truncate>
+          {game.name}
+        </Heading>
+        <HStack
+          justifyContent="space-between"
+          width="100%"
+          paddingX={5}
+          marginTop={3}
+        >
+          <PlatformIconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
+          <CriticScore score={game.metacritic} />
+        </HStack>
+      </CardBody>
+    </Card.Root>
   );
 };
 
