@@ -20,20 +20,15 @@ const GameCard = ({ game }: Props) => {
         overflow="hidden"
         padding={3}
       >
-        <Heading fontSize="xl" truncate>
-          {game.name}
-        </Heading>
-        <HStack
-          justifyContent="space-between"
-          width="100%"
-          paddingX={11}
-          marginTop={3}
-        >
+        <HStack justifyContent="space-between" marginBottom={3}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize="lg" whiteSpace={"normal"}>
+          {game.name}
+        </Heading>
       </CardBody>
     </Card.Root>
   );
